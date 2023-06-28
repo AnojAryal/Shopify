@@ -1,5 +1,5 @@
 import { HStack, Image, Text } from "@chakra-ui/react";
-import logo from "../assets/Shopify-Logo.png";
+import logo from "../assets/Shopify-Logo.webp";
 
 const NavBar = () => {
   return (
