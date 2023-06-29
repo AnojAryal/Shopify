@@ -1,6 +1,5 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
-import ShopifyCategoriesGrid from "./components/ShopifyCategoriesGrid";
 import ShopifyProductGrid from "./components/ShopifyProductsGrid";
 
 function App() {
@@ -16,9 +15,7 @@ function App() {
           <NavBar />
         </GridItem>
         <Show above="lg">
-          <GridItem area="aside">
-            <ShopifyCategoriesGrid />
-          </GridItem>
+          <GridItem area="aside">Aside</GridItem>
         </Show>
         <GridItem area="main">
           <ShopifyProductGrid />

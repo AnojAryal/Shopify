@@ -1,16 +1,21 @@
-import { Text } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import useProducts from "../hooks/useProducts";
+import ProductCard from "./ProductCard";
 
 const ShopifyProductGrid = () => {
   const { products, error } = useProducts();
   return (
     <>
       {error && <Text>{error}</Text>}
-      <ul>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+        padding="10px"
+        spacing={10}
+      >
         {products.map((Product) => (
-          <li key={Product.id}>{Product.name}</li>
+          <ProductCard key={Product.id} product={Product} />
         ))}
-      </ul>
+      </SimpleGrid>
     </>
   );
 };
