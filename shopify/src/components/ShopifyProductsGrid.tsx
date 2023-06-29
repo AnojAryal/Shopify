@@ -1,30 +1,11 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-
-interface Product {
-  id: number;
-  name: string;
-}
-
-interface FetchProductsResponse {
-  count: number;
-  results: Product[];
-}
+import { Text } from "@chakra-ui/react";
+import useProducts from "../hooks/useProducts";
 
 const ShopifyProductGrid = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get<FetchProductsResponse>("/products")
-      .then((response) => setProducts(response.data.results))
-      .catch((error) => setError(error.message));
-  }, []);
-
+  const { products, error } = useProducts();
   return (
     <>
-      {error && <text>{error}</text>}
+      {error && <Text>{error}</Text>}
       <ul>
         {products.map((Product) => (
           <li key={Product.id}>{Product.name}</li>
