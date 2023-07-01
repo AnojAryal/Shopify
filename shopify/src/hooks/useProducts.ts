@@ -13,6 +13,7 @@ export interface Product {
     name: string;
     background_image : string;
     sizes_list : Size[]
+    metacritic : number;
   }
   
 interface FetchProductsResponse {

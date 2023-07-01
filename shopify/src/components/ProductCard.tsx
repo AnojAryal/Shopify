@@ -1,6 +1,7 @@
 import { Product } from "../hooks/useProducts";
-import { Card, CardBody, Heading, Image, Text } from "@chakra-ui/react";
+import { Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
 import SizeIconList from "./SizeIconList";
+import CriticStore from "./CriticStore";
 
 interface Props {
   product: Product;
@@ -12,7 +13,10 @@ const ProductCard = ({ product }: Props) => {
       <Image src={product.background_image} />
       <CardBody>
         <Heading fontSize="2xl">{product.name}</Heading>
-        <SizeIconList sizes={product.sizes_list} />
+        <HStack justifyContent="space-between">
+          <SizeIconList sizes={product.sizes_list} />
+          <CriticStore score={product.metacritic} />
+        </HStack>
       </CardBody>
     </Card>
   );
