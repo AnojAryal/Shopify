@@ -1,5 +1,5 @@
 import { Product } from "../hooks/useProducts";
-import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
+import { Card, CardBody, Heading, Image, Text } from "@chakra-ui/react";
 
 interface Props {
   product: Product;
@@ -11,6 +11,9 @@ const ProductCard = ({ product }: Props) => {
       <Image src={product.background_image} />
       <CardBody>
         <Heading fontSize="2xl">{product.name}</Heading>
+        {product.sizes_list.map((sizes) => (
+          <Text>{sizes.name}</Text>
+        ))}
       </CardBody>
     </Card>
   );
