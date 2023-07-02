@@ -1,7 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import useCategories from "../hooks/useCategories";
 
-const ShopifyCategoriesGrid = () => {
+const ShopifyCategoriesList = () => {
   const { categories, error } = useCategories();
 
   return (
@@ -16,4 +16,4 @@ const ShopifyCategoriesGrid = () => {
   );
 };
 
-export default ShopifyCategoriesGrid;
+export default ShopifyCategoriesList;
