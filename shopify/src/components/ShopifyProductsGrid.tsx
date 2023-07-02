@@ -1,7 +1,7 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import useProducts from "../hooks/useProducts";
 import ProductCard from "./ProductCard";
-import ProductCardSkeleton from "./productCardSkeleton";
+import ProductCardSkeleton from "./ProductCardSkeleton";
 import ProductCardContainer from "./ProductCardContainer";
 
 const ShopifyProductGrid = () => {
