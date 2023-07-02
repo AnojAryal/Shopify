@@ -2,6 +2,7 @@ import { SimpleGrid, Text } from "@chakra-ui/react";
 import useProducts from "../hooks/useProducts";
 import ProductCard from "./ProductCard";
 import ProductCardSkeleton from "./productCardSkeleton";
+import ProductCardContainer from "./ProductCardContainer";
 
 const ShopifyProductGrid = () => {
   const { products, error, isLoading } = useProducts();
@@ -16,9 +17,15 @@ const ShopifyProductGrid = () => {
         spacing={10}
       >
         {isLoading &&
-          skeletons.map((skeleton) => <ProductCardSkeleton key={skeleton} />)}
-        {products.map((Product) => (
-          <ProductCard key={Product.id} product={Product} />
+          skeletons.map((skeleton) => (
+            <ProductCardContainer key={skeleton}>
+              <ProductCardSkeleton />
+            </ProductCardContainer>
+          ))}
+        {products.map((product) => (
+          <ProductCardContainer key={product.id}>
+            <ProductCard product={product} />
+          </ProductCardContainer>
         ))}
       </SimpleGrid>
     </>
