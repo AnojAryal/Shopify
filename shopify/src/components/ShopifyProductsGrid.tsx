@@ -5,7 +5,7 @@ import ProductCardSkeleton from "./ProductCardSkeleton";
 import ProductCardContainer from "./ProductCardContainer";
 
 const ShopifyProductGrid = () => {
-  const { products, error, isLoading } = useProducts();
+  const { data, error, isLoading } = useProducts();
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -22,7 +22,7 @@ const ShopifyProductGrid = () => {
               <ProductCardSkeleton />
             </ProductCardContainer>
           ))}
-        {products.map((product) => (
+        {data.map((product) => (
           <ProductCardContainer key={product.id}>
             <ProductCard product={product} />
           </ProductCardContainer>

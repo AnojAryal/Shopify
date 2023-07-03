@@ -1,14 +1,14 @@
 import { Text } from "@chakra-ui/react";
-import useCategories from "../hooks/useCategories";
+import useCategories, { Category } from "../hooks/useCategories";
 
 const ShopifyCategoriesList = () => {
-  const { categories, error } = useCategories();
+  const { data, error } = useCategories();
 
   return (
     <>
       {error && <Text>{error}</Text>}
       <ul>
-        {categories.map((Category) => (
+        {data.map((Category) => (
           <li key={Category.id}>{Category.name}</li>
         ))}
       </ul>

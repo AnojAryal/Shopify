@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+import useData from "./useData";
 
 export interface Size {
   id : number,
@@ -16,36 +14,8 @@ export interface Product {
     metacritic : number;
   }
   
-interface FetchProductsResponse {
-    count: number;
-    results: Product[];
-  }
 
-const useProducts =() => {
-    const [products, setProducts] = useState<Product[]>([]);
-    const [error, setError] = useState("");
-    const [isLoading , setLoading]=useState(false)
-  
-    useEffect(() => {
-        const controller = new AbortController();
-        setLoading(true);
+const useProducts =() => useData<Product>("/products")
 
-      apiClient
-        .get<FetchProductsResponse>("/products",{signal :controller.signal})
-        .then((response) => {
-          setProducts(response.data.results)
-          setLoading(false)
-        })
-        .catch((error) =>{
-            if (error instanceof CanceledError )return
-            setError(error.message)
-            setLoading(false);
-        });
-
-      return ()=> controller.abort();
-    },[]);
-
-    return {products,error,isLoading};
-}
 
 export default useProducts;
