@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 import useCategories, { Category } from "../hooks/useCategories";
 
 const ShopifyCategoriesList = () => {
@@ -7,11 +7,20 @@ const ShopifyCategoriesList = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      <ul>
+      <List>
         {data.map((Category) => (
-          <li key={Category.id}>{Category.name}</li>
+          <ListItem key={Category.id} paddingY="5px">
+            <HStack>
+              <Image
+                boxSize="32px"
+                borderRadius={8}
+                src={Category.background_image}
+              />
+              <Text fontSize="lg">{Category.name}</Text>
+            </HStack>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </>
   );
 };
