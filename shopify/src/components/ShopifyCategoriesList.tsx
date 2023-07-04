@@ -1,8 +1,10 @@
-import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
 import useCategories, { Category } from "../hooks/useCategories";
 
 const ShopifyCategoriesList = () => {
-  const { data, error } = useCategories();
+  const { data, error, isLoading } = useCategories();
+
+  if (isLoading) return <Spinner />;
 
   return (
     <>
