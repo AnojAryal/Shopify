@@ -15,7 +15,7 @@ const SizeIconList = ({ sizes }: Props) => {
     <HStack marginY={2}>
       {sizes.map((sizes) => (
         // <Text>{sizes.name}</Text>
-        <Icon key={sizes.slug} as={iconMap[sizes.slug]} color="gray.500" />
+        <Icon key={sizes.id} as={iconMap[sizes.slug]} color="gray.500" />
       ))}
     </HStack>
   );

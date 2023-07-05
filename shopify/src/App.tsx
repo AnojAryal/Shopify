@@ -2,8 +2,13 @@ import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import ShopifyProductGrid from "./components/ShopifyProductsGrid";
 import ShopifyCategoriesList from "./components/ShopifyCategoriesList";
+import { useState } from "react";
+import { Categories } from "./hooks/useCategories";
 
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState<Categories | null>(
+    null
+  );
   return (
     <div>
       <Grid
@@ -21,11 +26,13 @@ function App() {
         </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
-            <ShopifyCategoriesList />
+            <ShopifyCategoriesList
+              onSelectCategory={(category) => setSelectedCategory(category)}
+            />
           </GridItem>
         </Show>
         <GridItem area="main">
-          <ShopifyProductGrid />
+          <ShopifyProductGrid selectedCategory={selectedCategory} />
         </GridItem>
       </Grid>
     </div>

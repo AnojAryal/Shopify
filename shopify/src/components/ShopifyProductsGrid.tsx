@@ -3,9 +3,14 @@ import useProducts from "../hooks/useProducts";
 import ProductCard from "./ProductCard";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 import ProductCardContainer from "./ProductCardContainer";
+import { Categories } from "../hooks/useCategories";
 
-const ShopifyProductGrid = () => {
-  const { data, error, isLoading } = useProducts();
+interface Props {
+  selectedCategory: Categories | null;
+}
+
+const ShopifyProductGrid = ({ selectedCategory }: Props) => {
+  const { data, error, isLoading } = useProducts(selectedCategory);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (

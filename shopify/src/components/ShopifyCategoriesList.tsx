@@ -1,7 +1,19 @@
-import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
-import useCategories, { Category } from "../hooks/useCategories";
+import {
+  Button,
+  HStack,
+  Image,
+  List,
+  ListItem,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
+import useCategories, { Categories } from "../hooks/useCategories";
 
-const ShopifyCategoriesList = () => {
+interface Props {
+  onSelectCategory: (category: Categories) => void;
+}
+
+const ShopifyCategoriesList = ({ onSelectCategory }: Props) => {
   const { data, error, isLoading } = useCategories();
 
   if (isLoading) return <Spinner />;
@@ -10,15 +22,21 @@ const ShopifyCategoriesList = () => {
     <>
       {error && <Text>{error}</Text>}
       <List>
-        {data.map((Category) => (
-          <ListItem key={Category.id} paddingY="5px">
+        {data.map((category) => (
+          <ListItem key={category.id} paddingY="5px">
             <HStack>
               <Image
                 boxSize="32px"
                 borderRadius={8}
-                src={Category.background_image}
+                src={category.background_image}
               />
-              <Text fontSize="lg">{Category.name}</Text>
+              <Button
+                onClick={() => onSelectCategory(category)}
+                fontSize="lg"
+                variant="link"
+              >
+                {category.name}
+              </Button>
             </HStack>
           </ListItem>
         ))}

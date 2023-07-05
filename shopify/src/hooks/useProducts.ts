@@ -1,3 +1,4 @@
+import { Categories } from "./useCategories";
 import useData from "./useData";
 
 export interface Size {
@@ -15,7 +16,10 @@ export interface Product {
   }
   
 
-const useProducts =() => useData<Product>("/products")
+const useProducts =(selectedCategory : Categories | null) =>
+ useData<Product>("/products", {params:{categories :selectedCategory?.id}},
+ [selectedCategory?.id])
 
 
 export default useProducts;
+
