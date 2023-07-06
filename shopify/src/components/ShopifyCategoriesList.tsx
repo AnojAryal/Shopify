@@ -11,9 +11,13 @@ import useCategories, { Categories } from "../hooks/useCategories";
 
 interface Props {
   onSelectCategory: (category: Categories) => void;
+  selectedCategory: Categories | null;
 }
 
-const ShopifyCategoriesList = ({ onSelectCategory }: Props) => {
+const ShopifyCategoriesList = ({
+  onSelectCategory,
+  selectedCategory,
+}: Props) => {
   const { data, error, isLoading } = useCategories();
 
   if (isLoading) return <Spinner />;
@@ -31,6 +35,9 @@ const ShopifyCategoriesList = ({ onSelectCategory }: Props) => {
                 src={category.background_image}
               />
               <Button
+                fontWeight={
+                  category.id === selectedCategory?.id ? "bold" : "normal"
+                }
                 onClick={() => onSelectCategory(category)}
                 fontSize="lg"
                 variant="link"

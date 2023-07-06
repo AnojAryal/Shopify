@@ -27,6 +27,7 @@ function App() {
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
             <ShopifyCategoriesList
+              selectedCategory={selectedCategory}
               onSelectCategory={(category) => setSelectedCategory(category)}
             />
           </GridItem>
