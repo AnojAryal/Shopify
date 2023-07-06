@@ -4,6 +4,7 @@ import ShopifyProductGrid from "./components/ShopifyProductsGrid";
 import ShopifyCategoriesList from "./components/ShopifyCategoriesList";
 import { useState } from "react";
 import { Categories } from "./hooks/useCategories";
+import SizeSelector from "./components/SizeSelector";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<Categories | null>(
@@ -33,6 +34,7 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
+          <SizeSelector />
           <ShopifyProductGrid selectedCategory={selectedCategory} />
         </GridItem>
       </Grid>
