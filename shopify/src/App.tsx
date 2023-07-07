@@ -5,11 +5,13 @@ import ShopifyCategoriesList from "./components/ShopifyCategoriesList";
 import { useState } from "react";
 import { Categories } from "./hooks/useCategories";
 import SizeSelector from "./components/SizeSelector";
+import { Size } from "./hooks/useProducts";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<Categories | null>(
     null
   );
+  const [selectedSize, setSelectedSize] = useState<Size | null>(null);
   return (
     <div>
       <Grid
@@ -34,8 +36,14 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <SizeSelector />
-          <ShopifyProductGrid selectedCategory={selectedCategory} />
+          <SizeSelector
+            selectedSize={selectedSize}
+            onSelectSize={(size) => setSelectedSize(size)}
+          />
+          <ShopifyProductGrid
+            selectedSize={selectedSize}
+            selectedCategory={selectedCategory}
+          />
         </GridItem>
       </Grid>
     </div>

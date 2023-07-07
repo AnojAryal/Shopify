@@ -1,11 +1,11 @@
 import useData from "./useData"
 
-interface sizes{
+interface Sizes{
     id : number,
     name : string,
     slug : string;
 }
 
-const useSizes =() =>useData<sizes>('/sizes')
+const useSizes =() =>useData<Sizes>('/sizes')
 
-export default useSizes;
+export default useSizes
