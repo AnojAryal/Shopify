@@ -1,4 +1,4 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import ShopifyProductGrid from "./components/ShopifyProductsGrid";
 import ShopifyCategoriesList from "./components/ShopifyCategoriesList";
@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Categories } from "./hooks/useCategories";
 import SizeSelector from "./components/SizeSelector";
 import { Size } from "./hooks/useProducts";
+import SortSelector from "./components/SortSelector";
 
 export interface ShopQuery {
   category: Categories | null;
@@ -41,10 +42,13 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <SizeSelector
-            selectedSize={shopQuery.size}
-            onSelectSize={(size) => setShopQuery({ ...shopQuery, size })}
-          />
+          <HStack spacing={5} paddingLeft={2} marginBottom={5}>
+            <SizeSelector
+              selectedSize={shopQuery.size}
+              onSelectSize={(size) => setShopQuery({ ...shopQuery, size })}
+            />
+            <SortSelector />
+          </HStack>
           <ShopifyProductGrid shopQuery={shopQuery} />
         </GridItem>
       </Grid>
