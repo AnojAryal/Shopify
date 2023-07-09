@@ -21,8 +21,9 @@ const useProducts =( shopQuery : ShopQuery)=>
  useData<Product>("/products", {
   params:{
    categories :shopQuery.category?.id,
-   sizes : shopQuery.size?.id}},
+   selected_size : shopQuery.size?.id,
+   sort_by : shopQuery.sortOrder},
+  },
  [shopQuery])
-
 
 export default useProducts;

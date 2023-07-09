@@ -11,6 +11,7 @@ import SortSelector from "./components/SortSelector";
 export interface ShopQuery {
   category: Categories | null;
   size: Size | null;
+  sortOrder: string;
 }
 
 function App() {
@@ -47,7 +48,12 @@ function App() {
               selectedSize={shopQuery.size}
               onSelectSize={(size) => setShopQuery({ ...shopQuery, size })}
             />
-            <SortSelector />
+            <SortSelector
+              sortOrder={shopQuery.sortOrder}
+              onSelectSortOrder={(sortOrder) =>
+                setShopQuery({ ...shopQuery, sortOrder })
+              }
+            />
           </HStack>
           <ShopifyProductGrid shopQuery={shopQuery} />
         </GridItem>
