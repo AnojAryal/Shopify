@@ -1,4 +1,4 @@
-import { Categories } from "./useCategories";
+import { ShopQuery } from "../App";
 import useData from "./useData";
 
 export interface Size{
@@ -17,12 +17,12 @@ export interface Product {
   }
   
 
-const useProducts =(selectedCategory : Categories | null ,selectedSize : Size | null) =>
+const useProducts =( shopQuery : ShopQuery)=>
  useData<Product>("/products", {
   params:{
-   categories :selectedCategory?.id,
-   sizes : selectedSize?.id}},
- [selectedCategory?.id ,selectedSize?.id])
+   categories :shopQuery.category?.id,
+   sizes : shopQuery.size?.id}},
+ [shopQuery])
 
 
 export default useProducts;

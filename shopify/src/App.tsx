@@ -7,11 +7,14 @@ import { Categories } from "./hooks/useCategories";
 import SizeSelector from "./components/SizeSelector";
 import { Size } from "./hooks/useProducts";
 
+export interface ShopQuery {
+  category: Categories | null;
+  size: Size | null;
+}
+
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState<Categories | null>(
-    null
-  );
-  const [selectedSize, setSelectedSize] = useState<Size | null>(null);
+  const [shopQuery, setShopQuery] = useState<ShopQuery>({} as ShopQuery);
+
   return (
     <div>
       <Grid
@@ -30,20 +33,19 @@ function App() {
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
             <ShopifyCategoriesList
-              selectedCategory={selectedCategory}
-              onSelectCategory={(category) => setSelectedCategory(category)}
+              selectedCategory={shopQuery.category}
+              onSelectCategory={(category) =>
+                setShopQuery({ ...shopQuery, category })
+              }
             />
           </GridItem>
         </Show>
         <GridItem area="main">
           <SizeSelector
-            selectedSize={selectedSize}
-            onSelectSize={(size) => setSelectedSize(size)}
+            selectedSize={shopQuery.size}
+            onSelectSize={(size) => setShopQuery({ ...shopQuery, size })}
           />
-          <ShopifyProductGrid
-            selectedSize={selectedSize}
-            selectedCategory={selectedCategory}
-          />
+          <ShopifyProductGrid shopQuery={shopQuery} />
         </GridItem>
       </Grid>
     </div>
