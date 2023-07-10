@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import ShopifyProductGrid from "./components/ShopifyProductsGrid";
 import ShopifyCategoriesList from "./components/ShopifyCategoriesList";
@@ -43,18 +43,20 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <HStack spacing={5} paddingLeft={2} marginBottom={5}>
-            <SizeSelector
-              selectedSize={shopQuery.size}
-              onSelectSize={(size) => setShopQuery({ ...shopQuery, size })}
-            />
+          <Flex paddingLeft={2} marginBottom={5}>
+            <Box marginRight={5}>
+              <SizeSelector
+                selectedSize={shopQuery.size}
+                onSelectSize={(size) => setShopQuery({ ...shopQuery, size })}
+              />
+            </Box>
             <SortSelector
               sortOrder={shopQuery.sortOrder}
               onSelectSortOrder={(sortOrder) =>
                 setShopQuery({ ...shopQuery, sortOrder })
               }
             />
-          </HStack>
+          </Flex>
           <ShopifyProductGrid shopQuery={shopQuery} />
         </GridItem>
       </Grid>
