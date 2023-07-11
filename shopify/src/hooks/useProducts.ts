@@ -22,7 +22,8 @@ const useProducts =( shopQuery : ShopQuery)=>
   params:{
    categories :shopQuery.category?.id,
    selected_size : shopQuery.size?.id,
-   sort_by : shopQuery.sortOrder},
+   sort_by : shopQuery.sortOrder,
+   search_name : shopQuery.searchText}
   },
  [shopQuery])
 
