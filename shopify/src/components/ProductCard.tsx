@@ -12,11 +12,11 @@ const ProductCard = ({ product }: Props) => {
     <Card>
       <Image src={product.background_image} />
       <CardBody>
-        <Heading fontSize="2xl">{product.name}</Heading>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" marginBottom={3}>
           <SizeIconList sizes={product.sizes_list} />
           <CriticStore score={product.metacritic} />
         </HStack>
+        <Heading fontSize="2xl">{product.name}</Heading>
       </CardBody>
     </Card>
   );
