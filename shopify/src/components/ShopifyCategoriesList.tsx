@@ -1,6 +1,7 @@
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -24,6 +25,9 @@ const ShopifyCategoriesList = ({
 
   return (
     <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Categories
+      </Heading>
       {error && <Text>{error}</Text>}
       <List>
         {data.map((category) => (
@@ -32,9 +36,12 @@ const ShopifyCategoriesList = ({
               <Image
                 boxSize="32px"
                 borderRadius={8}
+                objectFit="cover"
                 src={category.background_image}
               />
               <Button
+                whiteSpace="normal"
+                textAlign="left"
                 fontWeight={
                   category.id === selectedCategory?.id ? "bold" : "normal"
                 }
