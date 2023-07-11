@@ -7,6 +7,7 @@ import { Categories } from "./hooks/useCategories";
 import SizeSelector from "./components/SizeSelector";
 import { Size } from "./hooks/useProducts";
 import SortSelector from "./components/SortSelector";
+import ShopHeading from "./components/ShopHeading";
 
 export interface ShopQuery {
   category: Categories | null;
@@ -48,20 +49,23 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
-          <Flex paddingLeft={2} marginBottom={5}>
-            <Box marginRight={5}>
-              <SizeSelector
-                selectedSize={shopQuery.size}
-                onSelectSize={(size) => setShopQuery({ ...shopQuery, size })}
+          <Box paddingLeft={2}>
+            <ShopHeading shopQuery={shopQuery} />
+            <Flex marginBottom={5}>
+              <Box marginRight={5}>
+                <SizeSelector
+                  selectedSize={shopQuery.size}
+                  onSelectSize={(size) => setShopQuery({ ...shopQuery, size })}
+                />
+              </Box>
+              <SortSelector
+                sortOrder={shopQuery.sortOrder}
+                onSelectSortOrder={(sortOrder) =>
+                  setShopQuery({ ...shopQuery, sortOrder })
+                }
               />
-            </Box>
-            <SortSelector
-              sortOrder={shopQuery.sortOrder}
-              onSelectSortOrder={(sortOrder) =>
-                setShopQuery({ ...shopQuery, sortOrder })
-              }
-            />
-          </Flex>
+            </Flex>
+          </Box>
           <ShopifyProductGrid shopQuery={shopQuery} />
         </GridItem>
       </Grid>
