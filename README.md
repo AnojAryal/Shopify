@@ -5,13 +5,13 @@ Shopify is a full-stack e-commerce web application built using React 18. It prov
 
 ## Deployment
 
-Shopify is deployed and 24/7 live up and running in the internet. You can visit the app at : [https://shopify-anojaryal.vercel.app/](https://shopify-anojaryal.vercel.app/).
+Shopify is deployed and 24/7 live up and running in the internet. You can visit the app at : [https://shopify-anojaryal.vercel.app/](https://shopify-anojaryal.vercel.app/)
 
 ## Backend API
 
-Backend of shopify is also deployed over the internet. You can access the backend API from the following URL : [https://store-qytl.onrender.com/store](https://store-qytl.onrender.com/store).
+Backend of shopify is also deployed over the internet. You can access the backend API from the following URL : [https://store-qytl.onrender.com/store](https://store-qytl.onrender.com/store)
 
-##API Endpoints
+## API Endpoints
 
 - `/products` - Retrieve a list of Products.
 - `/categories` - Retrieve a list of cloth categories.
