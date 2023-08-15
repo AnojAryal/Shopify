@@ -1,6 +1,6 @@
 # Shopify
 
-![Shopify](shopify/public/shopify.png)
+![Shopify](shopify/public/Shopify.png)
 Shopify is a full-stack e-commerce web application built using React 18. It provides users with an intuitive interface to browse and explore a wide range of clothing brands, each with various products and sizes.
 
 ## Deployment
