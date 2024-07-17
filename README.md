@@ -5,7 +5,7 @@ Shopify is a full-stack e-commerce web application built using React 18. It prov
 
 ## Deployment
 
-Shopify is deployed and 24/7 live up and running in the internet. You can visit the app at :[https://shopify-1-dun.vercel.app/](https://shopify-1-dun.vercel.app/)](https://shopify-1-dun.vercel.app/)
+Shopify is deployed and 24/7 live up and running in the internet. You can visit the app at :[https://shopify-1-dun.vercel.app/](https://shopify-1-dun.vercel.app/)
 
 ## Backend API
 
